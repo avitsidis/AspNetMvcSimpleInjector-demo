@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AspNetMvcSimpleInjector;
 using AspNetMvcSimpleInjector.Controllers;
+using Moq;
+using Services;
+using System.Dynamic;
 
 namespace AspNetMvcSimpleInjector.Tests.Controllers
 {
@@ -16,7 +19,8 @@ namespace AspNetMvcSimpleInjector.Tests.Controllers
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            var userRepositoryMock = new Mock<IUserRepository>();
+            HomeController controller = new HomeController(userRepositoryMock.Object);
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -25,11 +29,30 @@ namespace AspNetMvcSimpleInjector.Tests.Controllers
             Assert.IsNotNull(result);
         }
 
+
+        [TestMethod]
+        public void Index_Set_Usernames_in_ViewBag()
+        {
+            // Arrange
+            var userNames = new List<string> {"a","b" };
+            var userRepositoryMock = new Mock<IUserRepository>();
+            userRepositoryMock.Setup(m => m.GetAllUsernames()).Returns(userNames);
+            HomeController controller = new HomeController(userRepositoryMock.Object);
+
+            // Act
+            ViewResult result = controller.Index() as ViewResult;
+
+
+            // Assert
+            Assert.AreEqual(userNames,result.ViewBag.Usernames);
+        }
+
         [TestMethod]
         public void About()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            var userRepositoryMock = new Mock<IUserRepository>();
+            HomeController controller = new HomeController(userRepositoryMock.Object);
 
             // Act
             ViewResult result = controller.About() as ViewResult;
@@ -42,7 +65,8 @@ namespace AspNetMvcSimpleInjector.Tests.Controllers
         public void Contact()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            var userRepositoryMock = new Mock<IUserRepository>();
+            HomeController controller = new HomeController(userRepositoryMock.Object);
 
             // Act
             ViewResult result = controller.Contact() as ViewResult;

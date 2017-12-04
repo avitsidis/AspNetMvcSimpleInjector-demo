@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcSimpleInjector", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcSimpleInjector.Tests", "AspNetMvcSimpleInjector.Tests\AspNetMvcSimpleInjector.Tests.csproj", "{346BAF88-6E81-4427-9C3C-1FE501D26E14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{B39609C5-C4EE-4962-BE52-A9B1FAF61024}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{346BAF88-6E81-4427-9C3C-1FE501D26E14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{346BAF88-6E81-4427-9C3C-1FE501D26E14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{346BAF88-6E81-4427-9C3C-1FE501D26E14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B39609C5-C4EE-4962-BE52-A9B1FAF61024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B39609C5-C4EE-4962-BE52-A9B1FAF61024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B39609C5-C4EE-4962-BE52-A9B1FAF61024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B39609C5-C4EE-4962-BE52-A9B1FAF61024}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
